@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Pizze</title>
+</head>
+
+<body>
+	<h1>Pizze</h1>
+	<div>
+		<ul>
+			<li th:each="pizza : ${pizze}">
+				<div th:text="${pizza.name}"></div>
+				<div th:text="${pizza.description}"></div>
+				<div th:text="${pizza.price}"></div> $
+			</li>
+		</ul>
+	</div>
+</body>
+
+</html>
