@@ -11,7 +11,7 @@
 	<div>
 		<ul>
 			<li th:each="pizza : ${pizze}">
-				<div th:text="${pizza.name}"></div>
+				<a th:href="@{/details/{id}(id=${pizza.id})}" th:text="${pizza.name}"></a>
 				<div th:text="${pizza.description}"></div>
 				<div th:text="${pizza.price}"></div> $
 			</li>
