@@ -16,6 +16,10 @@
 				<div th:text="${pizza.price}"></div> $
 			</li>
 		</ul>
+		<a class="nav-link" th:href="@{/create}"
+		
+			th:classAppend="${pagina=='create'}? active : not-active"> crea pizza
+		</a>
 	</div>
 </body>
 

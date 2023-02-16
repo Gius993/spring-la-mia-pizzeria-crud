@@ -7,6 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="pizza")
@@ -15,14 +20,26 @@ public class Pizza {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@NotNull(message="devi scrivere il nome")
+	@NotEmpty(message="deve essere pieno")
 	@Column
 	private String name;
+	
+	@NotNull(message="devi descrivere la pizza")
+	@NotEmpty(message="deve essere pieno")
+	@Size(min = 1, max = 55, message = "devi inserire massimo 55 caratteri")
 	@Column
 	@Lob
 	private String description;
-	@Column
+	
+	@NotNull(message="inserisci una foto")
+	@NotEmpty(message="deve essere pieno")
 	@Lob
 	private String img;
+	
+	@NotNull(message="dai il prezzo alla tua pizza")
+	@Max(60)
+	@Min(1)
 	@Column
 	private int price;
 
@@ -33,7 +50,7 @@ public class Pizza {
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
