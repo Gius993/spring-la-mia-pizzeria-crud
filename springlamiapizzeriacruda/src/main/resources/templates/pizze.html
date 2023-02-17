@@ -14,12 +14,16 @@
 				<a th:href="@{/details/{id}(id=${pizza.id})}" th:text="${pizza.name}"></a>
 				<div th:text="${pizza.description}"></div>
 				<div th:text="${pizza.price}"></div> $
+				</a>
+				<a th:href="@{'/edit/{id}'(id=${pizza.id})}"> Modifica</a>
+				<form action="#" th:action="@{'/delete/{id}'(id=${pizza.id})}" method="post">
+					<button type="submit" id="submitButton">
+						Elimina
+					</button>
+				</form>
 			</li>
 		</ul>
-		<a class="nav-link" th:href="@{/create}"
-		
-			th:classAppend="${pagina=='create'}? active : not-active"> crea pizza
-		</a>
+		<a class="nav-link" th:href="@{/create}" th:classAppend="${pagina=='create'}? active : not-active"> crea pizza
 	</div>
 </body>
 
